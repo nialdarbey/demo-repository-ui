@@ -1,0 +1,27 @@
+{
+  USE_MOCKS: '',
+  UI_VERSION: 'Unknown',
+  API_HOST: 'https://registry-ci.mulesoft.com/api',
+  WEBSOCKET_HOST: 'wss://stream-registry-ci.mulesoft.com',
+  AGENT_DOWNLOAD_LINK: 'https://s3.amazonaws.com/habitat-ci-agent/habitat-agent-core-1.0-SNAPSHOT.jar',
+
+  LOGIN_TIMEOUT: 10000,
+
+  INVALID_CREDENTIALS_MSG: 'Invalid username or password',
+  TIMEOUT_ERROR_MSG: 'System currently unavailable',
+  SERVICE_UNAVAILABLE_MSG: 'System currently unavailable',
+  SESSION_EXPIRED_MSG: 'Session expired due to inactivity',
+  MAX_INACTIVITY_PERIOD: 120000, //In milliseconds
+
+  AGENT_TOKEN_PATH: '/access-token/',
+  AGENT_TOKEN_REVOKE_PATH: '/access-token/revoke/',
+  CURRENT_USER_PATH: '/users/current',
+  ORGANIZATION_PATH: '/organizations/current',
+  SCOPES: ['ADMIN_ORGANIZATIONS', 'READ_SERVICES', 'WRITE_SERVICES',
+    'CONSUME_SERVICES', 'APPLY_POLICIES', 'READ_CONSUMERS', 'WRITE_CONSUMERS',
+    'CONTRACT_MGMT', 'CONSUME_POLICIES'],
+
+  KISSMETRICS_KEY: '429e051af3b2b2cc04fabda1d1bbcc1e34d45231',
+
+  MAX_FILE_SIZE: 20
+}

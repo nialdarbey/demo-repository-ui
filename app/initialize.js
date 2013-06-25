@@ -27,3 +27,7 @@ require('helpers');
 
 // ===== Templates =====
 require('templates');
+
+require('mixins');
+
+require('config');
