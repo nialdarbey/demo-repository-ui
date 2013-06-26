@@ -1,0 +1,15 @@
+<h4 class="search-title">{{content.name}}<a {{action showMore item href="true" target="view"}}>More...</a>
+</h4>
+<ul class="typeahead nav search-results">
+    {{#if content.items.length}}
+        {{#each item in content.items}}
+            <li {{bindAttr data-value="item.name"}}>
+                <a {{action showDetails item href="true" target="view"}}>
+                    {{highlight item query=content.query}}
+                </a>
+            </li>
+        {{/each}}
+    {{else}}
+        <span class="search-no-data-found">No results</span>
+    {{/if}}
+</ul>

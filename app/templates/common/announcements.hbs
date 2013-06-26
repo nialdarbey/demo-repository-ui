@@ -1,0 +1,24 @@
+<div id="announcement-carousel" class="announcements carousel slide" data-interval="false">
+    {{#if content.isLoaded}}
+        <div class="carousel-inner">
+        {{#each announcement in content}}
+            {{#view App.AnnouncementItem group="#announcement-carousel"}}
+                <div class="announcement">
+                    <h5>{{ announcement.title }}</h5>
+                    <p>{{ announcement.description }}</p>
+                    <span>{{ dateFormater announcement.createdAt }}</span>
+                </div>
+            {{/view}}
+        {{/each}}
+        </div>
+        {{#if content.moreThanOne}}
+            <ol class="carousel-indicators">
+            {{#each announcement in content}}
+                {{view App.AnnouncementIndicator data-target="#announcement-carousel"}}
+            {{/each}}
+            </ol>
+        {{/if}}
+    {{else}}
+        {{view App.SpinnerView loadingMessage="Loading announcements..."}}
+    {{/if}}
+</div>

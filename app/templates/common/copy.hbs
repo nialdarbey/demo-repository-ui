@@ -1,0 +1,15 @@
+{{#if view.flashPresent}}
+{{#if view.placeOnLeft}}
+<a href="#" {{action copy target="view"}} class="copy-button">
+    <i class="icon-paste icon-dark"></i>
+</a>
+{{/if}}
+{{/if}}
+<input class="code-to-copy" type="text" {{bindAttr value="view.valueToCopy"}} readonly />
+{{#if view.flashPresent}}
+{{#if view.placeOnRight}}
+<a href="#" {{action copy target="view"}} class="copy-button">
+    <i class="icon-paste icon-dark"></i>
+</a>
+{{/if}}
+{{/if}}

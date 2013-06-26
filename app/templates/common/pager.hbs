@@ -1,0 +1,23 @@
+{{#if controller.content.length}}
+    {{#if controller.content.isLoaded}}
+        <span class="pull-left">Showing <em>{{controller.showRecords}}</em> out of <em>{{controller.totalRecords}}</em> records.</span>
+    {{/if}}
+{{/if}}
+<div class="pull-right page-selector">
+    {{#if view.hasPages}}
+      <div {{bindAttr class="view.disablePrev"}}><a href="#" {{action prevPage target="view"}}><i class="icon-angle-left"></i></a></div>
+    {{/if}}
+    {{#if view.hasPages}}
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Page {{controller.currentPage}} <i class="icon-angle-down"></i></span></a>
+        <ul class="dropdown-menu">
+        {{#each view.pages itemViewClass="view.pageButton" page="content"}}
+            <a href="#" {{action goToPage this target="view"}}>Page {{this}}&nbsp;</a>
+        {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+    {{#if view.hasPages}}
+    <div {{bindAttr class="view.disableNext"}}><a href="#" {{action nextPage target="view"}}><i class="icon-angle-right"></i></a></div>
+    {{/if}}
+</div>

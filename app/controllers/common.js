@@ -1,0 +1,10 @@
+require('controllers/common/alert');
+require('controllers/common/pager');
+require('controllers/common/login');
+require('controllers/common/wizard');
+require('controllers/common/confirmDialog');
+require('controllers/common/ownership');
+require('controllers/common/searchResultsForm');
+require('controllers/common/searchList');
+require('controllers/common/userDetails');
+require('controllers/common/announcements');

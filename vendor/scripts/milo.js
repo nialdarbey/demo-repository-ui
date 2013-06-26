@@ -188,11 +188,6 @@ Milo.clone = function(obj) {
 */
 Milo.property = function (type, options) {
     options = options || {};
-
-    if (options.readOnly) {
-        options.operations = [];
-    }
-
     options.occurrences = "one";
     options.embedded = true;
     options.type = type || 'string';
@@ -484,10 +479,12 @@ Milo.DefaultAdapter = Milo.Object.extend({
                     model.set('isDirty', false);
                     model.set('isDeleted', true);
                     model.set('isDeleting', false);
+                    model.set('isSaving', false);
                     deferred.resolve(model);
                 })
                 .fail(function (jqXHR) {
                     model.set('isDeleting', false);
+                    model.set('isSaving', false);
                     deferred.reject(that._extractErrors(jqXHR));
                 });
         }

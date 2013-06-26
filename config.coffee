@@ -11,10 +11,24 @@ exports.config =
 
             order:
                 before: [
-                    'vendor/scripts/console-polyfill.js'
                     'vendor/scripts/jquery-1.9.1.js'
                     'vendor/scripts/handlebars-1.0.rc.3.js'
+                    'vendor/scripts/jquery-ui-autocomplete.js',
+                    'vendor/scripts/jquery.jrumble.1.3.js',
+                    'vendor/scripts/jquery.validate.js',
+                    'vendor/scripts/console-helper.js',
                     'vendor/scripts/ember-1.0.0-rc.3.js'
+                    'vendor/scripts/bootstrap.js',
+                    'vendor/scripts/bootstrap-typeahead.custom.js',
+                    'vendor/scripts/moment.js',
+                    'vendor/scripts/tag-it.js',
+                    'vendor/scripts/ZeroClipboard.min.js',
+                    'vendor/scripts/md5.js',
+                    'vendor/scripts/showdown.js',
+                    'vendor/scripts/dropzone.js',
+                    'vendor/scripts/inflection.js',
+                    'vendor/scripts/jquery.flot.js',
+                    'vendor/scripts/jquery.flot.pie.js'
                 ]
 
         stylesheets:

@@ -1,0 +1,53 @@
+<div class="row-fluid">
+    <button type="button" class="close" {{action "cancel" target="view"}}>×</button>
+    <h3 class="wizard-title">{{wizardName}}</h3>
+</div>
+<div class="wizard">
+    <div class="steps-panel steps-{{unbound content.steps.length}}">
+        <ul>
+            {{#each step in content.steps}}
+                {{#if step.isCurrentStep}}
+                    <li class="active">
+                      <span>{{step.title}}<i class="habitat-icon-step-{{unbound step.number}}"></i></span>
+                    </li>
+                {{else}}
+                    {{#if step.isPreviousStep}}
+                        <li class="active">
+                          <span>{{step.title}}<i class="habitat-icon-circle-check habitat-icon-green"></i></span>
+                        </li>
+                    {{else}}
+                        <li>
+                          <span>{{step.title}}<i class="habitat-icon-step-{{unbound step.number}}"></i></span>
+                        </li>
+                    {{/if}}
+                {{/if}}                    
+            {{/each}}
+        </ul>
+    </div>
+    <div class="step-content">
+        <div class="wizard-body">
+            {{outlet wizard-notifications}}
+            {{outlet current-step}}
+        </div>
+        <div class="wizard-buttons">
+            {{#unless controller.isSaving}}
+                {{#unless controller.isFirstStep}}
+                    <button tabindex="-1" {{action "previous" target="view"}} {{bindAttr disabled="controller.isFirstStep"}} class="btn btn-primary btn-wizard-button">« Prev Step</button>
+                {{/unless}}
+                {{#if controller.isFirstStep}}
+                    <button disabled="true" class="btn btn-primary btn-wizard-button">« Prev Step</button>
+                {{/if}}
+                {{#unless controller.isLastStep}}
+                    <button {{action "next" target="view"}} {{bindAttr disabled="controller.isLastStep"}} class="btn btn-primary btn-wizard-button">Next Step »</button>
+                {{/unless}}
+                {{#if controller.isLastStep}}
+                    <button {{action "finish" target="view"}} class="btn btn-success btn-wizard-button">Finish</button>
+                {{/if}}
+            {{/unless}}
+            {{#if controller.isSaving}}
+                <button disabled="true" class="btn btn-primary btn-wizard-button">« Prev Step</button>
+                <button disabled="true" class="btn btn-success btn-wizard-button">{{view App.SpinnerSmallView loadingMessage="Working..."}}</button>
+            {{/if}}
+        </div>
+    </div>
+</div>

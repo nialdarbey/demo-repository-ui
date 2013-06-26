@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <button type="button" class="close" rel="close">×</button>
+    <h4 id="ownershipModalLabel">{{content.type}} of {{content.entityName}}</h4>
+</div>
+<div class="modal-body">
+    <div>
+        {{outlet modal-notifications}}
+    </div>
+    <div class="owners-container">
+        <form id="ownership-form" class="form-inline ownership-form">
+            <div class="row-fluid">
+                <div class="control-group span12">
+                    <div class="control-group">
+                        {{view Ember.TextField class="span9 typeahead user-search" valueBinding="owner.username" name="username" placeholder="Username" }}&nbsp;&nbsp;
+                        {{#if newRecord.isSaving}}
+                            <button class="btn btn-success btn-small" disabled="true">{{view App.SpinnerSmallView loadingMessage="Adding..."}}</button>
+                        {{else}}
+                            <button class="btn btn-success btn-small" {{action addOwner href="true" target="view"}}><i class="icon-plus"></i> {{actionText}}</button>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-condensed table-habitat inner-table table-last-column-actions" id="owners-list">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if owners.isLoaded}}
+                    {{#if owners.length}}
+                        {{#each user in owners}}
+                            {{#if user.isSaving}}
+                                <tr>
+                                    <td colspan="2">
+                                        {{view App.SpinnerSmallView loadingMessage="Removing user..."}}
+                                    </td>
+                                </tr>
+                            {{else}}
+                                <tr>
+                                    <td>{{user.fullName}}</td>
+                                    <td>
+                                        {{#unless isLastOwner}}
+                                            {{view App.ConfirmationView recordBinding="user" controllerBinding="controller" actionName="Remove" iconClassNames="habitat-icon-trash icon-dark" placement="left"}}
+                                        {{/unless}}
+                                    </td>
+                                </tr>
+                            {{/if}}
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="2">
+                                <div class="no-data-found">No matching users found.</div>
+                            </td>
+                        </tr>
+                    {{/if}}
+                {{else}}
+                    <tr>
+                        <td colspan="2">
+                            {{view App.SpinnerView loadingMessage="Loading users..."}}
+                        </td>
+                    </tr>
+                {{/if}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" rel="close">Close</button>
+</div>

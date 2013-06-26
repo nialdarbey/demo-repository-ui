@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <button type="button" class="close" rel="close">×</button>
+    <h4 id="endpointPoliciesModalLabel">{{unbound title}}</h4>
+</div>
+<div class="modal-body">
+    <span class="confirm-dialog-message">{{safeString body}}</span>
+</div>
+<div class="modal-footer">
+    {{#if okButtonEnabled}}
+        <button class="btn btn-primary" rel="close">No</button>
+        <button class="btn btn-success" {{action accept target="view"}}>Yes</button>
+    {{else}}
+        <button class="btn btn-primary" {{action accept target="view"}}>Ok</button>
+    {{/if}}
+</div>

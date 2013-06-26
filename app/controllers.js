@@ -1,2 +1,2 @@
+require('controllers/common');
 require('controllers/login');
-require('controllers/application');

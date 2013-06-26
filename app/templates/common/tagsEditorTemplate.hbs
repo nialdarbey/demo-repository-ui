@@ -1,0 +1,20 @@
+<form class="form-inline editableform">
+    <div class="control-group control-tag-area">
+        <div class="editable-input">
+            <ul {{bindAttr id="view.controlId"}}>
+                {{#each tag in view.editableValue}}
+                    <li>{{tag}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="editable-buttons">
+            <button type="submit" class="editable-submit" {{action save target="view"}}>
+                <i class="habitat-icon-check"></i>
+            </button>
+            <button type="button" class="editable-cancel" {{action cancel target="view"}}>
+                <i class="habitat-icon-cancel"></i>
+            </button>
+        </div>
+    </div>
+</form>

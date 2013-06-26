@@ -1,0 +1,15 @@
+<form class="form editableform">
+    <div class="control-group control-text-area">
+        <div class="editable-textarea">
+            {{view Em.TextArea valueBinding="view.editableValue" nameBinding="view.fieldName" }}
+        </div>
+        <div class="editable-buttons">
+            <button type="submit" class="editable-submit" {{action save target="view"}}>
+                <i class="habitat-icon-check"></i>
+            </button>
+            <button type="button" class="editable-cancel" {{action cancel target="view"}}>
+                <i class="habitat-icon-cancel"></i>
+            </button>
+        </div>
+    </div>
+</form>

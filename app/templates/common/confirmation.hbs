@@ -1,0 +1,7 @@
+<span rel="tooltip" data-placement="top" data-title="{{unbound view.actionName}} {{unbound view.modelName}}">
+  <a rel="popover"
+     {{bindAttr data-placement="view.placement"}}
+     {{bindAttr data-title="view.title"}}
+     data-content='<a href="#" {{action onConfirm target="view"}} {{bindAttr class="view.buttonClassNames"}}>{{unbound view.actionName}}<a/> <a href="#" {{action hide target="view"}} class="btn btn-small">Cancel<a/>'
+     data-html='true'><i {{bindAttr class="view.iconClassNames"}}></i></a>
+</span>

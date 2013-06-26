@@ -1,0 +1,45 @@
+{{outlet search-list}}
+<div class="navbar navbar-inverse navbar-mini">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="nav-search-scope">Scope</li>
+                    <li class="divider-vertical"></li>
+                    <li {{bindAttr class="view.isServices:selected"}}>
+                        <a href="#/services"
+                           rel="tooltip"
+                           data-placement="bottom"
+                           data-title="Services"
+                           {{action showServicesResults item href="true" target="view"}}>
+                            <i class="habitat-icon-services"></i>
+                        </a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li {{bindAttr class="view.isApplications:selected"}}>
+                        <a href="#/consumers"
+                           rel="tooltip"
+                           data-placement="bottom"
+                           data-title="Consumers"
+                           {{action showConsumersResults item href="true" target="view"}}>
+                            <i class="habitat-icon-consumers"></i>
+                        </a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    {{#if App.user.organizationOwner }}
+                        <li {{bindAttr class="view.isUsers:selected"}}>
+                            <a href="#/users"
+                               rel="tooltip"
+                               data-placement="bottom"
+                               data-title="Users"
+                               {{action showUsersResults item href="true" target="view"}}>
+                                <i class="habitat-icon-users"></i>
+                            </a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

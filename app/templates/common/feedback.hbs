@@ -1,0 +1,35 @@
+<small>    
+    {{unbound view.message}} 
+    {{#if view.multiline}}
+        <br />
+    {{/if}}
+    <a {{action togglePopover target="view"}}> Suggest a new policy</a>
+</small>
+<div class="popover {{unbound view.placement}} feedback-popover">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        <div class="popover-body">
+            {{#if view.done}}
+                <p>Thanks for your feedback</p>
+            {{else}}
+                {{view Em.TextArea disabledBinding="view.sending" viewName="feedback" name="feedback" placeholder="Please describe the policy and provide a brief description of the use case"}}
+            {{/if}}
+        </div>
+        <div class="popover-actions">
+        {{#if view.showSubmit}}
+            <a href="#" class="btn btn-small btn-success" {{action submit target="view"}}>Submit</a> 
+            {{else}}
+                {{#if view.sending}}
+                    <a class="btn btn-small btn-success disabled">{{view App.SpinnerSmallView loadingMessage="Sending feedback..."}}</a>
+                {{else}}
+                    <a class="btn btn-small btn-success disabled">Submit</a>
+                {{/if}}
+            {{/if}}
+            {{#if view.showCancel}}
+                <a href="#" class="btn btn-small" {{action cancel target="view"}} >{{view.cancelLabel}}</a>
+            {{else}}
+                <a href="#" class="btn btn-small disabled" {{action cancel target="view"}} >Cancel</a>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<form class="form editableform">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <div>
+                    <div class="editable-textarea-markdown" style="height: 118px;">
+                        {{view Em.TextArea valueBinding="view.editableValue" nameBinding="view.fieldName" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span6 markdown-preview">
+            <div class="markdown-text" style="padding: 10px">
+                {{markdown view.editableValue}}
+            </div>
+            <div class="editable-buttons">
+                <button type="submit" class="editable-submit" {{action save target="view"}}>
+                    <i class="habitat-icon-check"></i>
+                </button>
+                <button type="button" class="editable-cancel" {{action cancel target="view"}}>
+                    <i class="habitat-icon-cancel"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="pull-right" style="color: #cccccc; margin-right: 7px; margin-top: -25px;">
+                Preview
+            </div>
+        </div>
+    </div>
+</form>

@@ -15,10 +15,12 @@
         "start": "brunch watch --server"
     },
     "dependencies": {
+        "jsenv-brunch":"git+https://github.com/rcs/jsenv-brunch.git#8477836dd903bab3d3f2d94a6c2eedf3a65046e1",
         "javascript-brunch": ">= 1.0 < 1.6",
         "coffee-script-brunch": ">= 1.0 < 1.6",
 
         "css-brunch": ">= 1.0 < 1.6",
+        "less-brunch":"1.4.1",
         "stylus-brunch": ">= 1.0 < 1.6",
 
         "uglify-js-brunch": ">= 1.0 < 1.6",

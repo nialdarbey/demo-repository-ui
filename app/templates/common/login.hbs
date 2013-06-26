@@ -1,0 +1,30 @@
+
+<div class="modal-header">
+    <div class="logo"></div>
+</div>
+<div class="modal-body">
+    <span class="subtitle">Sign In</span>
+    <form name='loginForm'>
+        {{outlet notifications}}
+        {{view Ember.TextField valueBinding="content.username" elementId="username" placeholder="Username" }}
+        {{view Ember.TextField valueBinding="content.password" type="password" elementId="password" autocomplete="off" placeholder="Password" }}
+        {{#if controller.content.authenticating}}
+            <a class="btn btn-success disabled">{{view App.SpinnerView loadingMessageBinding="controller.status"}}</a>
+        {{else}}
+            <a class="btn btn-success" {{action doLogin target="view" href="true"}}>Log In</a>
+        {{/if}}
+        <div class="signin-footer">
+            <div class="forgot-password">
+              <a href="http://www.mulesoft.org/request-password" target="_blank">Forgot your password?</a>
+            </div>
+            <div class="help">
+              <a href="http://www.mulesoft.org/documentation/display/current/Anypoint+Service+Registry" target="_blank">
+                Need Help?</a>
+            </div>
+        </div>
+    </form>
+    <div class="announcements-container">
+      <span class="subtitle">Anypoint Announcements</span>
+      {{outlet announcements}}
+    </div>
+</div>

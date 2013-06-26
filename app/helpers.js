@@ -13,15 +13,6 @@ String.prototype.endsWith = function () {
     return result;
 };
 
-DS.JSONTransforms.array = {
-    deserialize: function (serialized) {
-        return serialized;
-    },
-    serialize: function (deserialized) {
-        return deserialized;
-    }
-};
-
 App.Helpers = Em.Object.extend({
     cloneEmObject: function (emObject) {
         return JSON.parse(JSON.stringify(emObject));

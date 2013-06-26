@@ -1,0 +1,25 @@
+<p class="align-left username">{{unbound view.prefixMessage}}<a {{action togglePopover target="view"}}>{{view.user.fullName}}</a></p>
+<div class="popover {{unbound view.placement}} user-info-popover">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        {{#if controller.userDetails.isLoaded}}
+            <div class="avatar">
+                <img src="{{unbound controller.userDetails.avatar}}">
+            </div>
+            <div class="user-info">
+                <span class="username">{{unbound controller.userDetails.fullName}}</span><br>
+                <span class="email"><a href="mailto:{{unbound controller.userDetails.email}}" rel="no-close">{{unbound controller.userDetails.email}}</a></span>
+            </div>
+        {{else}}
+            {{#if controller.userDetails.errors.length}}
+                <div class="pagination-centered">
+                    User details not found.
+                </div>
+            {{else}}
+                <div class="pagination-centered">
+                    {{view App.SpinnerSmallView loadingMessage="Loading user details..."}}
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>
